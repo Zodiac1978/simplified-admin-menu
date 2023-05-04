@@ -106,7 +106,7 @@ class The_Menu {
 		}
 
 		add_action( 'admin_menu', [ $this, 'store_menus' ], PHP_INT_MAX - 2 );
-		add_action( 'admin_menu', [ $this, 'replace_menus' ], PHP_INT_MAX -1  );
+		// add_action( 'admin_menu', [ $this, 'replace_menus' ], PHP_INT_MAX -1  );
 		add_action( 'admin_menu', [ $this, 'register_settings_page' ], PHP_INT_MAX );
 		add_action( 'admin_init', [ $this, 'hide_menus' ], 0 );
 		add_action( 'admin_enqueue_scripts', [ $this, 'register_settings_styles' ] );
@@ -480,14 +480,13 @@ EOT;
 			return false;
 		}
 
-		add_submenu_page(
-			'options-general.php',
-			__( 'Plugin Settings', 'simplified-admin-menu' ),
-			__( 'Plugin Settings', 'simplified-admin-menu' ),
+		add_menu_page(
+			__( 'Extras', 'simplified-admin-menu' ),
+			__( 'Extras', 'simplified-admin-menu' ),
 			'delete_plugins',
 			'wonderland',
 			[ $this, 'settings_page' ],
-			8
+			'dashicons-admin-generic',
 		);
 
 		return true;
@@ -535,10 +534,11 @@ EOT;
 			);
 		}
 
+/*
 		if ( ! empty( $settings_menu ) ) {
 			$settings_box .= '<div class="Add-on"><div class="Add-on__inside">';
 			$settings_box .=   '<ul>';
-			/* translators: heading for list of various third-party settings pages  */
+			// translators: heading for list of various third-party settings pages 
 			$settings_box .=   sprintf( '<li class="Add-on__list-header"><span>%s</span></li>', esc_html__( 'Plugin Settings', 'simplified-admin-menu' ) );
 			$settings_box .=     $settings_menu;
 			$settings_box .=   '</ul>';
@@ -547,6 +547,7 @@ EOT;
 			$content .= $settings_box;
 
 		}
+		*/
 
 		/* translators: link to Plugins page; 1 = opening link tag, 2 = closing link tag */
 		$description = sprintf( __( 'Some of the %1$splugins%2$s you’ve activated bring their own settings. That’s what these are.', 'simplified-admin-menu' ),
@@ -699,7 +700,7 @@ EOT;
 	 * @return bool True if this is the settings page, else false
 	 */
 	public function register_settings_styles( string $hook_suffix ) : bool {
-		if( $hook_suffix !== 'settings_page_wonderland' ) {
+		if ( $hook_suffix !== 'toplevel_page_wonderland' ) {
 			return false;
 		}
 
@@ -709,7 +710,7 @@ EOT;
 		wp_register_style(
 			'simplified-admin-menu',
 			plugin_dir_url( __FILE__ ) . $file_name,
-			[],
+			array(),
 			$this->get_filemtime( $file )
 		);
 
