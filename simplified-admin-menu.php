@@ -1,16 +1,16 @@
 <?php
 /**
- * Plugin Name:       _AdminMenu
- * Description:       Opionated, heavily simplified, customised admin menu.
- * Version:           0.1.6
- * Author:            Caspar Hübinger
- * Author URI:        https://caspar.blog
- * GitHub Plugin URI: https://github.com/casparhubinger/simplified-admin-menu
+ * Plugin Name:       _ExtraMenu
+ * Description:       Move all additional menu entries to new Extras menu.
+ * Version:           0.2.0
+ * Author:            Caspar Hübinger, Torsten Landsiedel
+ * Author URI:        https://torstenlandsiedel.de
+ * GitHub Plugin URI: https://github.com/Zodiac1978/simplified-admin-menu
  * Text Domain:       simplified-admin-menu
  * License:           GNU General Public License v3
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.html
  *
- * Copyright (C) 2020  Caspar Hübinger
+ * Copyright (C) 2020  Caspar Hübinger, Torsten Landsiedel
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
