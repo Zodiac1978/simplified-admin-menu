@@ -471,6 +471,8 @@ EOT;
 	}
 
 	/**
+	 * Register "Extras" setting page for all our third-party top level menu entries.
+	 *
 	 * @todo Missing desc
 	 *
 	 * @return bool [description]
